@@ -1,1 +1,11 @@
-Aqui detallaremos todo.
+pipeline {
+    agent any
+    parameters {
+        string(name: 'NOMBRE', description:'Ingrese su nombre')
+        string(name: 'APELLIDO', description:'Ingrese su apellido')
+        choice(name: 'AREA', choices:['Contabilidad', 'Finanzas', 'Tecnologia'], description: 'Seleccione su area')
+    }
+    stages {
+        stage('Creacion de usuario')
+    } 
+}
