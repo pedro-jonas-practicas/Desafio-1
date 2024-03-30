@@ -13,5 +13,10 @@ pipeline {
                 sh "sudo groupadd Tecnologia"
             }
         }
+        stage('Creacion de usuario y asignacion de grupo') {
+            steps {
+                sh "sudo useradd -g $AREA $NOMBRE$APELLIDO"
+            }
+        }
     } 
 }
