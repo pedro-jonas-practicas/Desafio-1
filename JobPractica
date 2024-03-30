@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Creacion de grupos'){
             steps {
-                sh "groupadd Finanzas"
+                sh "sudo groupadd Finanzas"
             }
         }
     } 
