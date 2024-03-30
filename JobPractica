@@ -6,6 +6,10 @@ pipeline {
         choice(name: 'AREA', choices:['Contabilidad', 'Finanzas', 'Tecnologia'], description: 'Seleccione su area')
     }
     stages {
-        stage('Creacion de usuario')
+        stage('Creacion de usuario'){
+            steps {
+                echo "Hello ${params.NOMBRE}"
+            }
+        }
     } 
 }
