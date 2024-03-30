@@ -8,7 +8,9 @@ pipeline {
     stages {
         stage('Creacion de grupos'){
             steps {
+                sh "sudo groupadd Contabilidad"
                 sh "sudo groupadd Finanzas"
+                sh "sudo groupadd Tecnologia"
             }
         }
     } 
