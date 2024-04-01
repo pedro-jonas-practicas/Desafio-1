@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Creacion de usuario y asignacion de grupo') {
             steps {
-                sh "sudo useradd -g ${params.AREA} ${params.NOMBRE}"
+                sh "sudo useradd -g ${params.AREA} ${params.NOMBRE}${params.APELLIDO}"
             }
         }
     } 
