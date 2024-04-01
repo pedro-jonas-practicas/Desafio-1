@@ -5,6 +5,9 @@ pipeline {
         string(name: 'APELLIDO', description:'Ingrese su apellido')
         choice(name: 'AREA', choices:['Contabilidad', 'Finanzas', 'Tecnologia'], description: 'Seleccione su area')
     }
+    environment {
+        USUARIO="${params.NOMBRE}${params.APELLIDO}"
+    }
     stages {
         stage('Creacion de grupos'){
             steps {
@@ -15,8 +18,15 @@ pipeline {
         }
         stage('Creacion de usuario y asignacion de grupo') {
             steps {
-                sh "sudo useradd -g ${params.AREA} ${params.NOMBRE}${params.APELLIDO}"
+                sh "sudo useradd -g ${params.AREA} ${env.USUARIO}"
             }
         }
+        stage('Creacion de password') {
+            steps {
+                sh "sudo passwd -e ${env.USUARIO}"
+            }
+        }
+
     } 
+
 }
