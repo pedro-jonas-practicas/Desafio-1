@@ -23,8 +23,15 @@ pipeline {
         }
         stage('Creacion de password') {
             steps {
-                sh "sudo echo ${env.USUARIO}:provisoria123 | sudo chpasswd"
+                sh "sudo echo ${env.USUARIO}:pepito123 | sudo chpasswd"
                 sh "sudo passwd -e ${env.USUARIO}"
+            }
+        }
+        stage('Aviso de completado') {
+            steps {
+                sh "echo Te damos la bienvenida ${params.NOMBRE}"
+                sh "echo Tu usuario es ${env.USUARIO} y tu password es 'pepito123'"
+                sh "echo Por politicas de la empresa deberas cambiar tu password en el primer login"
             }
         }
 
