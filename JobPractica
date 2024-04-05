@@ -24,6 +24,7 @@ pipeline {
         stage('Creacion de password') {
             steps {
                 sh "sudo echo ${env.USUARIO}:provisoria123 | sudo chpasswd"
+                sh "sudo passwd -e ${env.USUARIO}"
             }
         }
 
